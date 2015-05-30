@@ -4,26 +4,39 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Created by Illia on 5/30/2015.
+ * This java program shuffle an array.
+ * <p>
+ * Array [1,2,3,4,5] -> [3,5,2,1,4]
  */
 public class ShuffleArray {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ShuffleArray shuffleArray = new ShuffleArray();
-        int[] array = new int[]{1,2,3,4,5};
+        int[] array = new int[]{1, 2, 3, 4, 5};
+
+        System.out.println("Current array: " + Arrays.toString(array));
 
         array = shuffleArray.shuffleArray(array);
 
-        System.out.println(Arrays.toString(array));
+        System.out.println("Shuffled array: "+Arrays.toString(array));
     }
 
-    protected int[] shuffleArray(int[] defaultArray) {
-        Random random = new Random();
 
-        for (int i = 0; i < defaultArray.length; i++) {
-            int position = random.nextInt(defaultArray.length);
-            int temp = defaultArray[position];
-            defaultArray[position] = defaultArray[i];
-            defaultArray[i] = temp;
+    /**
+     * Shuffle an array using "for" loop and Random. See {@link Random#nextInt(int)}
+     *
+     * @param defaultArray array of integers, can be null or empty.
+     * @return shuffled array or default array
+     */
+    protected int[] shuffleArray(int[] defaultArray) {
+        if (defaultArray != null && defaultArray.length > 0) {
+            Random random = new Random();
+
+            for (int i = 0; i < defaultArray.length; i++) {
+                int position = random.nextInt(defaultArray.length);
+                int temp = defaultArray[position];
+                defaultArray[position] = defaultArray[i];
+                defaultArray[i] = temp;
+            }
         }
 
         return defaultArray;
