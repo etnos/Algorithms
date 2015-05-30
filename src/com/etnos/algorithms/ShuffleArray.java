@@ -17,7 +17,7 @@ public class ShuffleArray {
 
         array = shuffleArray.shuffleArray(array);
 
-        System.out.println("Shuffled array: "+Arrays.toString(array));
+        System.out.println("Shuffled array: " + Arrays.toString(array));
     }
 
 
