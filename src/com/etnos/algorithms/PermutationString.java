@@ -61,11 +61,14 @@ public class PermutationString {
     /**
      * remove character by position in given string
      *
-     * @param defaultString a given string
+     * @param defaultString a given string, can not be null
      * @param position      position of a character for removing
      * @return a string without removed character
      */
     private String removeCharByPosition(String defaultString, int position) {
+        if (defaultString == null || position > defaultString.length()) {
+            throw new IllegalArgumentException("can not remove character");
+        }
         return defaultString.substring(0, position) + defaultString.substring(position + 1, defaultString.length());
     }
 }
