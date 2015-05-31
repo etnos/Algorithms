@@ -23,6 +23,8 @@ public class ShuffleArray {
 
     /**
      * Shuffle an array using "for" loop and Random. See {@link Random#nextInt(int)}
+     * <p>
+     * Complexity: O(n)
      *
      * @param defaultArray array of integers, can be null or empty.
      * @return shuffled array or default array

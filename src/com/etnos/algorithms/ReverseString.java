@@ -24,6 +24,8 @@ public class ReverseString {
 
     /**
      * Reverse string using {@link StringBuilder#reverse()}
+     * <p>
+     * Complexity: O(n)
      *
      * @param str string to reverse. Can be null or empty
      * @return reversed string or empty string
@@ -39,6 +41,8 @@ public class ReverseString {
 
     /**
      * Reverse string using custom logic. Use StringBuilder as a placeholder
+     * <p>
+     * Complexity: O(n)
      *
      * @param str string to reverse. Can be null or empty
      * @return reversed string or empty string
@@ -58,6 +62,8 @@ public class ReverseString {
 
     /**
      * Reverse string using custom logic. Use char[] as a placeholder
+     * <p>
+     * Complexity: O(n)
      *
      * @param str string to reverse. Can be null or empty
      * @return reversed string or empty string
@@ -78,6 +84,8 @@ public class ReverseString {
 
     /**
      * Reverse string using recursion. See {@link String#charAt(int)} and {@link String#substring(int, int)}
+     * <p>
+     * Complexity: O(n)
      *
      * @param str string to reverse. Can be null or empty
      * @return reversed string or empty string

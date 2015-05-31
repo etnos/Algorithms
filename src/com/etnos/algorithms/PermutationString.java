@@ -38,6 +38,8 @@ public class PermutationString {
 
     /**
      * Process all permutation of a given string. Uses recursion to calculate all permutations
+     * <p>
+     * Complexity: O(n!)
      *
      * @param defaultString     string with a given value
      * @param permutationPrefix substring with prefix value for a permutation
@@ -46,12 +48,24 @@ public class PermutationString {
     protected void doPermutationRec(String defaultString, String permutationPrefix, ArrayList<String> permList) {
         if (defaultString.length() > 0) {
             for (int i = 0; i < defaultString.length(); i++) {
-                String newDefaultString = defaultString.substring(0, i) + defaultString.substring(i + 1, defaultString.length());
+                String newDefaultString = removeCharByPosition(defaultString, i);
                 String newPermutationPrefix = permutationPrefix + defaultString.charAt(i);
                 doPermutationRec(newDefaultString, newPermutationPrefix, permList);
             }
         } else {
+            // default string is empty, no more changes possible
             permList.add(permutationPrefix);
         }
+    }
+
+    /**
+     * remove character by position in given string
+     *
+     * @param defaultString a given string
+     * @param position      position of a character for removing
+     * @return a string without removed character
+     */
+    private String removeCharByPosition(String defaultString, int position) {
+        return defaultString.substring(0, position) + defaultString.substring(position + 1, defaultString.length());
     }
 }
