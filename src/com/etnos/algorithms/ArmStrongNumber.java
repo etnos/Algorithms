@@ -7,9 +7,9 @@ package com.etnos.algorithms;
  */
 public class ArmStrongNumber {
     public static void main(String[] args) {
-        ArmStrongNumber armStrongNumber = new ArmStrongNumber();
+        ArmStrongNumber instance = new ArmStrongNumber();
         int number = 371;
-        boolean result = armStrongNumber.isArmStrong(number);
+        boolean result = instance.isArmStrong(number);
 
         System.out.println("Number " + number + " is Arm Strong " + result);
 
