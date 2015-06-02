@@ -15,6 +15,10 @@ public class Palindrome {
         String str = "abccba";
         result = instance.isPalindrome(str);
         System.out.println("String " + str + " is palindrome " + result);
+
+        str = "qweabcddcbaqrw";
+        String longestPalindrome = instance.findLongestPalindrome(str);
+        System.out.println("String " + str + " contains longest palindrome " + longestPalindrome);
     }
 
 
@@ -63,12 +67,43 @@ public class Palindrome {
             return str;
         }
 
-        boolean isEven = str.length() % 2 == 0;
-
+        String result = "";
         for (int i = 1; i < str.length() - 1; i++) {
+            String palindrome = findPalindrome(str, i, i);
+            if (result.length() < palindrome.length()) {
+                result = palindrome;
+            }
 
+            palindrome = findPalindrome(str, i, i + 1);
+            if (result.length() < palindrome.length()) {
+                result = palindrome;
+            }
         }
 
-
+        return result;
     }
+
+    private String findPalindrome(String str, int left, int right) {
+        if (str == null || left < 0 || right >= str.length()) {
+            return "";
+        }
+
+        if (str.length() == 1) {
+            return str;
+        }
+
+        while (left >= 0 && right < str.length()) {
+            char cLeft = str.charAt(left);
+            char cRight = str.charAt(right);
+            if (cRight == cLeft) {
+                left--;
+                right++;
+            } else {
+                return str.substring(left + 1, right);
+            }
+        }
+
+        return "";
+    }
+
 }
