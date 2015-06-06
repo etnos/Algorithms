@@ -12,7 +12,7 @@ public class Palindrome {
         boolean result = instance.isPalindrome(value);
         System.out.println("Value " + value + " is palindrome " + result);
 
-        String str = "abccba";
+        String str = "abcccba";
         result = instance.isPalindrome(str);
         System.out.println("String " + str + " is palindrome " + result);
 
@@ -22,6 +22,15 @@ public class Palindrome {
     }
 
 
+    /**
+     * this method check is number a palindrome
+     * <p>
+     * 131 is a palindrome,
+     * 123 is not
+     *
+     * @param number a value for checking
+     * @return true if palindrome, false otherwise
+     */
     protected boolean isPalindrome(int number) {
         int result = 0;
         int origin = number;
@@ -36,6 +45,14 @@ public class Palindrome {
         return origin == result;
     }
 
+    /**
+     * this method check is string a palindrome
+     * "aba" is a palindrome,
+     * "abc" is not
+     *
+     * @param str a value for checking
+     * @return true if palindrome, false otherwise
+     */
     protected boolean isPalindrome(String str) {
         if (str == null || str.length() == 0) {
             return false;
@@ -46,15 +63,11 @@ public class Palindrome {
 
         char[] chars = str.toCharArray();
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            char first = chars[i];
-            char last = chars[length - 1 - i];
+        for (int i = 0; i < length / 2; i++) {
+            char right = chars[i];
+            char left = chars[length - 1 - i];
 
-            if (i >= length - 1 - i) {
-                break;
-            }
-
-            if (first != last) {
+            if (right != left) {
                 return false;
             }
         }
@@ -62,6 +75,14 @@ public class Palindrome {
         return true;
     }
 
+    /**
+     * this method checks for the longest palindrome in a given string
+     * <p>
+     * "acaabcba" a given string, longest palindrome is "abcba"
+     *
+     * @param str value for check
+     * @return the longest palindrome
+     */
     protected String findLongestPalindrome(String str) {
         if (str == null || str.length() <= 1) {
             return str;
@@ -83,6 +104,14 @@ public class Palindrome {
         return result;
     }
 
+    /**
+     * find a palindrome in a given string starting with custom middle point
+     *
+     * @param str   a given string
+     * @param left  position of a middle character for a left side of a palindrome
+     * @param right position of a middle character for a right side of a palindrome
+     * @return the longest palindrome starting with a custom middle point or empty string
+     */
     private String findPalindrome(String str, int left, int right) {
         if (str == null || left < 0 || right >= str.length()) {
             return "";
